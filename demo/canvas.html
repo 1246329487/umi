@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+
+    -->
+  <canvas id="canvas_one" width="600" height="600">
+    这里的内容，正常的画布是不显示的
+  </canvas>
+  <script>
+    var canvas_one = document.getElementById('canvas_one');
+    var ctx = canvas_one.getContext("2d");
+    ctx.rect(50, 50, 150, 75);
+    ctx.fillStyle = "#FF0000";
+    ctx.fill();
+    ctx.lineWidth = 20;
+    ctx.strokeStyle = 'aqua';
+    ctx.stroke();
+
+  </script>
+</body>
+
+</html>
