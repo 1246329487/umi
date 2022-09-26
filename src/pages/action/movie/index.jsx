@@ -4,7 +4,6 @@ import { movieAction } from '../../../../redux/action';
 import { store } from '../../../../redux/store';
 import ProCard from '@ant-design/pro-card';
 export default function IndexPage() {
- 
   return (
     <div>
       <Input type="text" placeholder='这里是action' onChange={(e) => {
