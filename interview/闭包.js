@@ -11,9 +11,7 @@
 // const c2 = increment()
 // const c3 = increment()
 // console.log('example increment', c1, c2, c3)
-
-
-
+// console.log('counter',counter)
 
 // for ( var i = 0; i < 5; i++) {
 //     (function (i){
@@ -25,7 +23,6 @@
 // setTimeout(() => {
 //     console.log(new Date, i);
 // }, 5000);
-
 
 // const tasks = [];
 // for (var i = 0; i < 5; i++) {   // 这里 i 的声明不能改成 let，如果要改该怎么做？
@@ -65,7 +62,6 @@
 //     }, 1000);
 // });
 
-
 // 模拟其他语言中的 sleep，实际上可以是任何异步操作
 // const sleep = (timeountMS) => new Promise((resolve) => {
 //     setTimeout(resolve, timeountMS);
@@ -83,7 +79,7 @@
 //     console.log(new Date, i);
 // })();
 
-const pro = (timeout) => {
+/*const pro = (timeout) => {
   return new Promise((res) => {
     setTimeout(res, timeout)
   })
@@ -96,4 +92,22 @@ const pro = (timeout) => {
   }
   await pro(1000)
 console.log('执行',i);
-})()
+})()*/
+
+// 释放内存
+/*function createCounter() {
+  let counter = 0
+  const myFunction = function () {
+    counter = counter + 1
+    return counter
+  }
+  return myFunction
+}
+let increment = createCounter()
+const c1 = increment()
+const c2 = increment()
+const c3 = increment()
+console.log('example increment', c1, c2, c3)
+increment = null
+let c4 = increment()
+console.log('c4',c4)*/
