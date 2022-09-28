@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+        call和apply
+            var person = {
+            name: "axuebin",
+            age: 25
+            };
+
+            function say(a, b) {
+            console.log(this, a, b)
+            // console.log(this.name + ":" + this.age + " " + job);
+            }
+            say.call(person, 1, 2); // axuebin:25
+            say.apply(person, ["FE", 2]); // axuebin:25
+            say = say.bind(person, 1, 2)
+            say()
+    */
+
+    /* 
+        箭头函数
+    */
+    // function Person(name) {
+    //   this.name = name;
+    //   this.say = () => {
+    //     var name = "xb";
+    //     return this.name;
+    //   }
+    // }
+    // var person = new Person("axuebin");
+    // console.log(person.say()); // axuebin
+
+    // function foo() {
+    //   setTimeout(() => {
+    //     console.log(this)
+    //     console.log(this.a);
+    //   }, 100)
+    // }
+    // var obj = {
+    //   a: 2
+    // }
+    // foo.call(obj);
+
+    // demo03  创建obj对象的时候是window在调用，所以a为20，调用fn的时候是obj在调用
+    // var a = 20;
+    // var obj = {
+    //   a: 10,
+    //   c: this.a + 20,
+    //   fn: function () {
+    //     return this.a;
+    //   }
+    // }
+    // console.log(obj.c);
+    // console.log(obj.fn());
+
+    // 'use strict';
+    // var a = 20;
+
+    // function foo() {
+    //   var a = 1;
+    //   var obj = {
+    //     a: 10,
+    //     c: this.a + 20,
+    //     fn: function () {
+    //       return this.a;
+    //     }
+    //   }
+    //   return obj.c;
+    // }
+    // console.log(foo()); // ？
+    // console.log(window.foo()); // ?
+
+    // var a = 20;
+    // var foo = {
+    //   a: 10,
+    //   getA: function () {
+    //     return this.a;
+    //   }
+    // }
+    // console.log(foo.getA()); // 10
+
+    // var test = foo.getA;
+    // console.log(test()); // 20
+
+    // var a = 20;
+
+    // function getA() {
+    //   return this.a;
+    // }
+    // var foo = {
+    //   a: 10,
+    //   getA: getA
+    // }
+    // console.log(foo.getA()); // 10
+
+    // function foo() {
+    //   console.log(this.a)
+    // }
+
+    // function active(fn) {
+    //   fn(); // 真实调用者，为独立调用
+    // }
+
+    // var a = 20;
+    // var obj = {
+    //   a: 10,
+    //   getA: foo
+    // }
+
+    // active(obj.getA);
+
+    // var foo = {
+    //   name: 'joker',
+    //   showName: function () {
+    //     console.log(this.name);
+    //   }
+    // }
+    // var bar = {
+    //   name: 'rose'
+    // }
+    // foo.showName.call(bar);
+
+    // function Student(name) {
+    //   this.name = name;
+    // }
+    // var s1 = new Student('若川');
+    // Student.prototype.doSth = function () {
+    //   console.log(this.name);
+    // }
+    // s1.doSth(); // '若川'
+
+    // class Student {
+    //   constructor(name) {
+    //     this.name = name;
+    //   }
+    //   doSth() {
+    //     console.log(this.name);
+    //   }
+    // }
+    // let s1 = new Student('若川');
+    // s1.doSth();
+
+    var name = 'window';
+    var student = {
+      name: '若川',
+      doSth: function () {
+        // var self = this;
+        var arrowDoSth = () => {
+          // console.log(self.name);
+          console.log(this.name);
+        }
+        arrowDoSth();
+      },
+      arrowDoSth2: () => {
+        console.log(this.name);
+      }
+    }
+    student.doSth(); // '若川'
+    student.arrowDoSth2(); // 'window'
+
+  </script>
+</body>
+
+</html>
